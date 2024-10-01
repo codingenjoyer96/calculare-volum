@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul Volum Cilindru</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Volumul unui Cilindru</h1>
+        <form id="volumeOfCylinder">
+            <div class="form-group">
+                <label>Introduceți raza cilindrului</label>
+                <input type="number" id="radius" class="form-control" placeholder="Introduceți raza cilindrului">
+            </div>
+            <div class="form-group">
+                <label>Introduceți înălțimea cilindrului</label>
+                <input type="number" id="height" class="form-control" placeholder="Introduceți înălțimea cilindrului">
+            </div>
+            <button type="submit" class="btn">Calculează</button>
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.getElementById('volumeOfCylinder');
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    const radius = parseFloat(document.getElementById('radius').value);
+                    const height = parseFloat(document.getElementById('height').value);
+
+                    const volume = calculateVolumeOfCylinder(radius, height);
+                    alert(`Volumul cilindrului este: ${volume.toFixed(2)} unități cubice`);
+                });
+
+                function calculateVolumeOfCylinder(radius, height) {
+                    const PI = Math.PI;
+                    return PI * radius * radius * height;
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
